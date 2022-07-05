@@ -1,0 +1,24 @@
+// https://aka.ms/devcontainer.json
+{
+	"name": "API",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "laravel.test",
+	"workspaceFolder": "/var/www/html",
+	"settings": {},
+	"extensions": [
+		// "mikestead.dotenv",
+		// "ryannaddy.laravel-artisan",
+		// "onecentlin.laravel5-snippets",
+		// "onecentlin.laravel-blade"
+		"amiralizadeh9480.laravel-extra-intellisense",
+		"bmewburn.vscode-intelephense-client",
+		"MehediDracula.php-namespace-resolver"
+	],
+	"remoteUser": "sail"
+	// "forwardPorts": [],
+	// "runServices": [],
+	// "postCreateCommand": "apt-get update && apt-get install -y curl",
+	// "shutdownAction": "none",
+}
