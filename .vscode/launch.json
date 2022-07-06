@@ -1,0 +1,22 @@
+{
+    // https://code.visualstudio.com/docs/nodejs/browser-debugging
+    // https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+    // https://code.visualstudio.com/docs/editor/debugging
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "chrome dev",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "runtimeExecutable": "dev",
+            "userDataDir": false,
+            "url": "http://localhost:9000",
+            "webRoot": "${workspaceFolder}/src",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js"
+            ],
+            "preLaunchTask": "quasar dev",
+            "smartStep": true
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "command": ".vscode/start-quasar",
+            "problemMatcher": [],
+            "label": "quasar dev",
+            "detail": "quasar dev",
+            "isBackground": true
+        }
+    ]
+}
