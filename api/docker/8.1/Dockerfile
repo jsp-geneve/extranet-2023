@@ -6,7 +6,7 @@ ARG WWWGROUP
 ARG NODE_VERSION=16
 ARG POSTGRES_VERSION=14
 
-WORKDIR /workspaces/extranet-2022/api
+WORKDIR /workspaces/api
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=UTC

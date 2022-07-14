@@ -2,10 +2,10 @@
 {
 	"name": "Laravel API",
 	"dockerComposeFile": [
-		"../../docker-compose.yml"
+		"../docker-compose.yml"
 	],
 	"service": "laravel.test",
-	"workspaceFolder": "/workspaces/extranet-2022/api",
+	"workspaceFolder": "/workspaces/api",
 	"settings": {},
 	"extensions": [
 		// "mikestead.dotenv",
