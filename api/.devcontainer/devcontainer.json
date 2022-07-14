@@ -1,11 +1,11 @@
 // https://aka.ms/devcontainer.json
 {
-	"name": "API",
+	"name": "Laravel API",
 	"dockerComposeFile": [
 		"../../docker-compose.yml"
 	],
 	"service": "laravel.test",
-	"workspaceFolder": "/var/www/html",
+	"workspaceFolder": "/workspaces/extranet-2022/api",
 	"settings": {},
 	"extensions": [
 		// "mikestead.dotenv",
