@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "shell",
-            "command": "start-quasar",
+            "command": "npm run dev",
             "problemMatcher": [],
             "label": "quasar dev",
             "detail": "quasar dev",
