@@ -35,5 +35,10 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	"remoteUser": "node",
+	// https://github.com/microsoft/vscode-remote-release/issues/2485#issuecomment-1156342780
+	"runArgs": [
+		"--name",
+		"extranet_2022-app"
+	]
 }
