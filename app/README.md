@@ -1,6 +1,8 @@
-# Extranet 2022 (extranet-2022)
+# Quasar app
 
-Extranet 2022
+[Quasar](https://quasar.dev/start/) is ready with its [VS Code devcontainer](https://code.visualstudio.com/docs/remote/containers) configuration.
+
+Simply open this `/app` folder in VS Code, then choose "Reopen in container".
 
 ## Install the dependencies
 ```bash
