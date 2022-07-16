@@ -8,13 +8,13 @@
 	"workspaceFolder": "/workspaces/api",
 	"settings": {},
 	"extensions": [
-		// "mikestead.dotenv",
-		// "ryannaddy.laravel-artisan",
-		// "onecentlin.laravel5-snippets",
-		// "onecentlin.laravel-blade"
+		"ryannaddy.laravel-artisan",
 		"amiralizadeh9480.laravel-extra-intellisense",
 		"bmewburn.vscode-intelephense-client",
-		"MehediDracula.php-namespace-resolver"
+		"MehediDracula.php-namespace-resolver",
+		"mhutchie.git-graph",
+		"eamodio.gitlens",
+		"Gruntfuggly.todo-tree"
 	],
 	"remoteUser": "sail"
 	// "forwardPorts": [],

@@ -17,7 +17,16 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"mhutchie.git-graph",
+				"Vue.volar",
+				"kisstkondoros.vscode-codemetrics",
+				"eamodio.gitlens",
+				"wix.vscode-import-cost",
+				"christian-kohler.path-intellisense",
+				"Gruntfuggly.todo-tree",
+				"mattpocock.ts-error-translator",
+				"cmstead.js-codeformer"
 			]
 		}
 	},
