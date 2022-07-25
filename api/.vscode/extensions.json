@@ -6,6 +6,7 @@
         "MehediDracula.php-namespace-resolver",
         "mhutchie.git-graph",
         "eamodio.gitlens",
-        "Gruntfuggly.todo-tree"
+        "Gruntfuggly.todo-tree",
+        "apollographql.vscode-apollo"
     ]
 }
