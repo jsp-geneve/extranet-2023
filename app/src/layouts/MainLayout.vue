@@ -63,6 +63,8 @@ import { defineComponent, ref } from 'vue'
 import NavLink from 'components/NavLink.vue'
 import auth from 'src/services/auth'
 import { useRouter } from 'vue-router'
+import { useMutation } from '@urql/vue'
+import { useQuasar } from 'quasar'
 
 const linksList = [
   {
@@ -87,6 +89,14 @@ export default defineComponent({
   setup () {
     const leftDrawerOpen = ref(false)
     const router = useRouter()
+    const $q = useQuasar()
+    const { executeMutation: executeLogout } = useMutation(`
+      mutation {
+        logout {
+            status
+            message
+        }
+      }`)
 
     return {
       navLinks: linksList,
@@ -94,11 +104,26 @@ export default defineComponent({
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
-      logout () {
-        auth.removeToken()
-        router.push({
-          name: 'Login',
-        })
+      async logout () {
+        const { error, data } = await executeLogout()
+
+        if (!error && data.logout.status === 'TOKEN_REVOKED') {
+          auth.removeToken()
+
+          $q.notify({
+            type: 'positive',
+            message: data.logout.message,
+          })
+
+          router.push({
+            name: 'Login',
+          })
+        } else {
+          $q.notify({
+            type: 'negative',
+            message: `${error}`,
+          })
+        }
       },
     }
   },

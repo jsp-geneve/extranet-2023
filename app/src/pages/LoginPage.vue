@@ -38,7 +38,7 @@
             :ripple="{
               early: true
             }"
-            :disabled="loading"
+            :loading="loading"
             label="se connecter"
             type="submit"
             color="primary"
@@ -54,6 +54,8 @@
 import { defineComponent, ref } from 'vue'
 import auth from 'src/services/auth'
 import { useRoute, useRouter } from 'vue-router'
+import { useMutation } from '@urql/vue'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   setup () {
@@ -61,42 +63,43 @@ export default defineComponent({
     const password = ref('')
     const router = useRouter()
     const { query } = useRoute()
+    const $q = useQuasar()
+
+    const { fetching, executeMutation: executeLogin } = useMutation(
+      `mutation ($email: String!, $password: String!) {
+        login(
+          input: {
+            email: $email, 
+            password: $password
+          }) {
+            token
+          }
+        }`)
 
     return {
       isPwd: ref(true),
       email,
       password,
-      loading: ref(false),
+      loading: fetching,
       submitLogin: async (e: Event) => {
         e.preventDefault()
 
-        const token = await fetch('http://localhost/graphql', {
-          headers: {
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            variables: {
-              email: email.value,
-              password: password.value,
-            },
-            query: `mutation ($email: String!, $password: String!) {
-              login(
-                input: {
-                  email: $email, 
-                  password: $password
-                }) {
-                  token
-                }
-              }`,
-          }),
-          method: 'POST',
-        }).then(response => response.json())
-          .then(data => data.data.login.token)
+        const { data, error } = await executeLogin({
+          email: email.value,
+          password: password.value,
+        })
 
-        auth.saveToken(token)
+        if (!error) {
+          auth.saveToken(data.login.token)
 
-        if (!Array.isArray(query.redirect)) {
-          await router.push(query.redirect || '/')
+          if (!Array.isArray(query.redirect)) {
+            await router.push(query.redirect || '/')
+          }
+        } else {
+          $q.notify({
+            type: 'negative',
+            message: `${error}`,
+          })
         }
       },
     }
