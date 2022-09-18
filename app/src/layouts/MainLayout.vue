@@ -19,6 +19,18 @@
             JSP Genève
           </router-link>
         </q-toolbar-title>
+
+        <q-btn
+          flat
+          round
+          dense
+          @click="logout"
+        >
+          <q-icon name="logout" />
+          <q-tooltip>
+            Logout
+          </q-tooltip>
+        </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -49,6 +61,8 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import NavLink from 'components/NavLink.vue'
+import auth from 'src/services/auth'
+import { useRouter } from 'vue-router'
 
 const linksList = [
   {
@@ -72,12 +86,19 @@ export default defineComponent({
 
   setup () {
     const leftDrawerOpen = ref(false)
+    const router = useRouter()
 
     return {
       navLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
+      },
+      logout () {
+        auth.removeToken()
+        router.push({
+          name: 'Login',
+        })
       },
     }
   },
