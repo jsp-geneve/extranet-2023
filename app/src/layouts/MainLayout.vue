@@ -63,7 +63,7 @@ import { defineComponent, ref } from 'vue'
 import NavLink from 'components/NavLink.vue'
 import auth from 'src/services/auth'
 import { useRouter } from 'vue-router'
-import { useMutation } from '@urql/vue'
+import { gql, useMutation } from '@urql/vue'
 import { useQuasar } from 'quasar'
 
 const linksList = [
@@ -90,7 +90,14 @@ export default defineComponent({
     const leftDrawerOpen = ref(false)
     const router = useRouter()
     const $q = useQuasar()
-    const { executeMutation: executeLogout } = useMutation(`
+
+    type LogoutMutation = {
+      logout: {
+        status: string,
+        message: string,
+      }
+    }
+    const { executeMutation: executeLogout } = useMutation<LogoutMutation>(gql`
       mutation {
         logout {
             status
@@ -105,9 +112,9 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
       async logout () {
-        const { error, data } = await executeLogout()
+        const { error, data } = await executeLogout({})
 
-        if (!error && data.logout.status === 'TOKEN_REVOKED') {
+        if (!error && data?.logout.status === 'TOKEN_REVOKED') {
           auth.removeToken()
 
           $q.notify({

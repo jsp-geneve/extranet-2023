@@ -54,7 +54,7 @@
 import { defineComponent, ref } from 'vue'
 import auth from 'src/services/auth'
 import { useRoute, useRouter } from 'vue-router'
-import { useMutation } from '@urql/vue'
+import { gql, useMutation } from '@urql/vue'
 import { useQuasar } from 'quasar'
 
 export default defineComponent({
@@ -65,8 +65,19 @@ export default defineComponent({
     const { query } = useRoute()
     const $q = useQuasar()
 
-    const { fetching, executeMutation: executeLogin } = useMutation(
-      `mutation ($email: String!, $password: String!) {
+    type LoginMutation = {
+      login: {
+        token: string
+      }
+    }
+
+    type LoginInput = {
+      email: string
+      password: string
+    }
+
+    const { fetching, executeMutation: executeLogin } = useMutation<LoginMutation, LoginInput>(
+      gql`mutation ($email: String!, $password: String!) {
         login(
           input: {
             email: $email, 
@@ -89,7 +100,7 @@ export default defineComponent({
           password: password.value,
         })
 
-        if (!error) {
+        if (!error && data) {
           auth.saveToken(data.login.token)
 
           if (!Array.isArray(query.redirect)) {
