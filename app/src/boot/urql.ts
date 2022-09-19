@@ -5,7 +5,7 @@ import { devtoolsExchange } from '@urql/devtools'
 
 export default boot(async ({ app }) => {
   app.use(urql, {
-    url: 'http://localhost/graphql',
+    url: process.env.API_URL,
     exchanges: [devtoolsExchange, ...defaultExchanges],
     fetchOptions: () => {
       const token = authService.getToken()
