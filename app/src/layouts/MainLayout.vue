@@ -1,35 +1,50 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header
-      elevated
-      class="bg-red-7"
+      flat
+      class="bg-grey-1 text-grey-8"
     >
       <q-toolbar>
         <q-btn
           flat
-          dense
           round
           icon="menu"
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          <router-link to="/">
-            JSP Genève
-          </router-link>
-        </q-toolbar-title>
+        <q-space />
 
         <q-btn
-          flat
           round
-          dense
-          @click="logout"
+          flat
         >
-          <q-icon name="logout" />
-          <q-tooltip>
-            Logout
-          </q-tooltip>
+          <q-avatar size="32px">
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+          </q-avatar>
+          <q-tooltip>Account</q-tooltip>
+          <q-menu
+            auto-close
+            transition-show="jump-down"
+            transition-hide="jump-up"
+          >
+            <q-list>
+              <q-item
+                v-ripple
+                clickable
+                @click="logout"
+              >
+                <q-item-section avatar>
+                  <q-icon
+                    name="logout"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  Logout
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -52,7 +67,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="bg-grey-1">
       <router-view />
     </q-page-container>
   </q-layout>

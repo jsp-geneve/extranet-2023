@@ -1,50 +1,57 @@
 <template>
   <q-layout>
-    <q-page-container>
+    <q-page-container class="bg-grey-1 text-grey-8">
       <q-page
         padding
         class="flex flex-center"
       >
-        <q-form
-          class="q-gutter-md"
-        >
-          <q-input
-            v-model="email"
-            filled
-            label="Adresse mail"
-            color="grey-8"
-            autocomplete="username"
-          />
-
-          <q-input
-            v-model="password"
-            filled
-            color="grey-8"
-            :type="isPwd ? 'password' : 'text'"
-            label="Mot de passe"
-            autocomplete="current-password"
+        <q-card>
+          <q-card-section
+            class="q-pa-lg"
           >
-            <template #append>
-              <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd = !isPwd"
+            <q-form
+              class="q-gutter-lg"
+            >
+              <q-input
+                v-model="email"
+                filled
+                label="Adresse mail"
+                color="grey-8"
+                autocomplete="username"
               />
-            </template>
-          </q-input>
-
-          <q-btn
-            id="foobar"
-            :ripple="{
-              early: true
-            }"
-            :loading="loading"
-            label="se connecter"
-            type="submit"
-            color="primary"
-            @click="submitLogin"
-          />
-        </q-form>
+              <q-input
+                v-model="password"
+                filled
+                color="grey-8"
+                :type="isPwd ? 'password' : 'text'"
+                label="Mot de passe"
+                autocomplete="current-password"
+              >
+                <template #append>
+                  <q-icon
+                    :name="isPwd ? 'visibility_off' : 'visibility'"
+                    class="cursor-pointer"
+                    @click="isPwd = !isPwd"
+                  />
+                </template>
+              </q-input>
+              <div class="row">
+                <q-btn
+                  id="foobar"
+                  unelevated
+                  :ripple="{
+                    early: true
+                  }"
+                  :loading="loading"
+                  label="se connecter"
+                  type="submit"
+                  class="bg-red-8 text-grey-1 full-width"
+                  @click="submitLogin"
+                />
+              </div>
+            </q-form>
+          </q-card-section>
+        </q-card>
       </q-page>
     </q-page-container>
   </q-layout>
