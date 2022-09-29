@@ -1,3 +1,5 @@
+#import sanctum.graphql
+
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
@@ -39,5 +41,3 @@ type User {
     "When the account was last updated."
     updated_at: DateTime!
 }
-
-#import sanctum.graphql
