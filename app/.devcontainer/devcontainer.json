@@ -39,6 +39,6 @@
 	// https://github.com/microsoft/vscode-remote-release/issues/2485#issuecomment-1156342780
 	"runArgs": [
 		"--name",
-		"extranet_2022-app"
+		"extranet_2023-app"
 	]
 }

@@ -1,8 +1,8 @@
 {
-  "name": "extranet-2022",
+  "name": "extranet-2023",
   "version": "0.0.1",
-  "description": "Extranet 2022",
-  "productName": "Extranet 2022",
+  "description": "Extranet 2023",
+  "productName": "Extranet 2023",
   "author": "Florian Sinatra <22062145+FrankySnow@users.noreply.github.com>",
   "private": true,
   "scripts": {
