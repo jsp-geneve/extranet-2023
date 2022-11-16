@@ -10,6 +10,9 @@
           round
           icon="menu"
           aria-label="Menu"
+          :ripple="{
+            early: true,
+          }"
           @click="toggleLeftDrawer"
         />
 
@@ -18,6 +21,9 @@
         <q-btn
           round
           flat
+          :ripple="{
+            early: true,
+          }"
         >
           <q-avatar size="32px">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png">
@@ -93,6 +99,12 @@ const linksList = [
     caption: 'Liste des cours',
     icon: 'school',
     link: '/cours',
+  },
+  {
+    title: 'Utilisateurs',
+    caption: 'Gestion des utilisateurs',
+    icon: 'groups_3',
+    link: '/users',
   },
 ]
 
