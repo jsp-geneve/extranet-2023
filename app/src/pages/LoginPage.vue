@@ -1,5 +1,20 @@
 <template>
   <q-layout>
+    <q-header
+      bordered
+      class="bg-white text-grey-8"
+    >
+      <q-toolbar>
+        <q-space />
+
+        <img
+          src="~/src/assets/ISG_Logo_Rouge.png"
+          height="36"
+        >
+
+        <q-space />
+      </q-toolbar>
+    </q-header>
     <q-page-container class="bg-grey-1 text-grey-8">
       <q-page
         padding

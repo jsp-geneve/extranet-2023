@@ -1,8 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header
-      flat
-      class="bg-grey-1 text-grey-8"
+      bordered
+      class="bg-white text-grey-8"
     >
       <q-toolbar>
         <q-btn
@@ -18,6 +18,12 @@
 
         <q-space />
 
+        <img
+          src="~/src/assets/ISG_Logo_Rouge.png"
+          height="36"
+        >
+
+        <q-space />
         <q-btn
           round
           flat
