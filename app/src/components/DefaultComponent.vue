@@ -1,7 +1,6 @@
+<script lang="ts" setup>
+</script>
+
 <template>
   hello world
 </template>
-
-<script lang="ts">
-export default { }
-</script>

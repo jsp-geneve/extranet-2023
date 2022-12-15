@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+withDefaults(defineProps<{
+  title: string,
+  caption: string,
+  link: string,
+  icon: string,
+}>(), {
+  caption: '',
+  link: '#',
+  icon: '',
+})
+</script>
+
 <template>
   <q-item
     v-ripple
@@ -19,32 +32,3 @@
     </q-item-section>
   </q-item>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'NavLink',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-
-    caption: {
-      type: String,
-      default: '',
-    },
-
-    link: {
-      type: String,
-      default: '#',
-    },
-
-    icon: {
-      type: String,
-      default: '',
-    },
-  },
-})
-</script>
