@@ -1,0 +1,4 @@
+$shadow-color         : hsl(0, 0%, 10%);
+$elevation-umbra      : rgba($shadow-color, .1);
+$elevation-penumbra   : rgba($shadow-color, .07);
+$elevation-ambient    : rgba($shadow-color, .06);
