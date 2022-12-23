@@ -1,0 +1,7 @@
+@each $bp in ('sm', 'md', 'lg', 'xl') {
+    @media (min-width: map-get($sizes,$bp)) {
+        .container {
+            max-width: map-get($sizes,$bp);
+        }
+    }
+}
