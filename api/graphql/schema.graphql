@@ -1,4 +1,5 @@
 #import sanctum.graphql
+#import recrutement.graphql
 
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
@@ -25,9 +26,6 @@ type Query {
 type User {
     "Unique primary key."
     id: ID!
-
-    "Non-unique name."
-    name: String!
 
     "Unique email address."
     email: String!

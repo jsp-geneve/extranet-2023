@@ -8,7 +8,6 @@ type Role = {
 
 type User = {
   id: number
-  name: string
   email: string
   roles: Array<Role>
 }
@@ -21,7 +20,6 @@ const { fetching, data /* error */ } = useQuery<UsersQuery>({
   query: gql`query allUsers {
     users {
       id
-      name
       email
       roles {
         name
@@ -75,12 +73,6 @@ const layout = ref<'table' | 'cards'>('table')
               style: 'width: 48px; padding: 16px',
             },
             {
-              name: 'name',
-              label: 'Nom',
-              field: 'name',
-              align: 'left',
-            },
-            {
               name: 'email',
               label: 'Adresse mail',
               field: 'email',
@@ -120,7 +112,7 @@ const layout = ref<'table' | 'cards'>('table')
         class="row q-col-gutter-md"
       >
         <div
-          v-for="({ name, email, roles }, index) in data?.users"
+          v-for="({ email, roles }, index) in data?.users"
           :key="index"
           class="col-4"
         >
@@ -134,10 +126,7 @@ const layout = ref<'table' | 'cards'>('table')
                 </q-avatar>
               </q-item-section>
               <q-item-section>
-                <q-item-label>{{ name }}</q-item-label>
-                <q-item-label caption>
-                  {{ email }}
-                </q-item-label>
+                <q-item-label>{{ email }}</q-item-label>
                 <q-item-label
                   class="q-gutter-x-md"
                 >

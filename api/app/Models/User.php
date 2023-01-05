@@ -21,7 +21,6 @@ class User extends Authenticatable implements HasApiTokensContract
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
     ];
