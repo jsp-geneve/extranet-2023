@@ -1,9 +1,3 @@
-type User {
-    id: ID!
-    name: String!
-    email: String!
-}
-
 type AccessToken {
     token: String!
 }
@@ -67,7 +61,6 @@ input ResendEmailVerificationInput {
 }
 
 input RegisterInput {
-    name: String!
     email: String! @rules(apply: ["bail", "email", "unique:users,email"])
     password: String! @rules(apply: ["confirmed"])
     password_confirmation: String!

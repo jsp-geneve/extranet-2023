@@ -1,0 +1,2 @@
+schema: ['programmatic-types.graphql', 'schema-directives.graphql']
+documents: ./graphql/imports/*.graphql
