@@ -54,3 +54,19 @@ type Role {
 type Permission {
   name: String!
 }
+
+type Adresse {
+    id: ID!
+    ligne_1: String!
+    ligne_2: String
+    code_postal: String!
+    commune: String!
+    pays: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    deleted_at: DateTime
+}
+
+extend type Query {
+    adresses: [Adresse!]! @all @softDeletes
+}
