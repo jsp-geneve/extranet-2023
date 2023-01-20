@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\Contracts\HasApiTokens as HasApiTokensContract;
@@ -43,4 +44,16 @@ class User extends Authenticatable implements HasApiTokensContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relation établie par la clé `adresse_id` dans Contact
+     * 
+     * ⚠️ Relation One-to-one
+     * 
+     * @return HasOne
+     */
+    public function contact(): HasOne
+    {
+        return $this->hasOne(Contact::class);
+    }
 }

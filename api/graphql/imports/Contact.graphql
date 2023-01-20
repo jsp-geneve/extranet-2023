@@ -1,0 +1,17 @@
+type Contact {
+    id: ID!
+    prenom: String!
+    nom: String!
+    email: String
+    telephone: String
+    remarque: String
+    user: User @belongsTo
+    adresse: Adresse @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+    deleted_at: DateTime
+}
+
+extend type Query {
+    contacts: [Contact!]! @all @softDeletes
+}

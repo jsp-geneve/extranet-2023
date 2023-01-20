@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(50)->create();
 
-        $this->call(
+        $this->call([
             AdresseSeeder::class,
-        );
+            ContactSeeder::class,
+        ]);
     }
 }

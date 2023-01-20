@@ -24,4 +24,14 @@ class Adresse extends Model
         'commune',
         'pays',
     ];
+
+    /**
+     * Relation établie par la clé `adresse_id` dans Contact
+     *
+     * @return HasMany
+     */
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(Contact::class);
+    }
 }
