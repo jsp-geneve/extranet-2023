@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -11,6 +14,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
+        "laravel/telescope": "^4.12",
         "laravel/tinker": "^2.7",
         "mll-lab/laravel-graphql-playground": "^2.6",
         "nuwave/lighthouse": "^5.57",
@@ -43,7 +47,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan telescope:publish --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
