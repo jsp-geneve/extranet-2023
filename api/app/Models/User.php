@@ -12,7 +12,7 @@ use Laravel\Sanctum\Contracts\HasApiTokens as HasApiTokensContract;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements HasApiTokensContract
+class User extends Authenticatable implements HasApiTokensContract, MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, HasUlids;
 

@@ -25,7 +25,7 @@ return [
     | It defaults to `false` for backwards compatibility.
     |
     */
-    'use_signed_email_verification_url' => false,
+    'use_signed_email_verification_url' => true,
 
     /*
     |--------------------------------------------------------------------------
