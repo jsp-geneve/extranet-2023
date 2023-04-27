@@ -1,0 +1,24 @@
+input EmailInput {
+    email: String! @rules(apply: ["email"])
+    verification_url: String! @rules(apply: ["url"])
+}
+
+type EmailSentResponse {
+    status: EmailSentStatus!
+}
+
+enum EmailSentStatus {
+    EMAIL_SENT
+}
+
+input MagicLinkInput {
+    id: ID!
+    hash: String!
+    expires: Int!
+    signature: String!
+}
+
+extend type Mutation {
+    askForMagicLink(input: EmailInput @spread): EmailSentResponse!
+    verifyMagicLink(input: MagicLinkInput @spread): AccessToken!
+}
